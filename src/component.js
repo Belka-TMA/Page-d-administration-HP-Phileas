@@ -59,7 +59,6 @@ function InputDouble(props){
 
 
 function InputStaticDouble(props) {
-        console.log('TEST')
         return (
             <div className="grosseTuilesDouble contentManage">
                 <h2>Grosse Tuile Double</h2>
