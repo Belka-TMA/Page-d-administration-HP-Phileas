@@ -43,20 +43,26 @@ function InputMultipleTest(props){
 }
 
 function InputDouble(props){
+    let propriete : {};
+    if(props.props){
+        propriete = props.props 
+
+    }else{
+        propriete = props
+    }
     return (
         <div className="grosseTuiles contentManage">
             <h2>Contenu Grosse tuiles</h2>
             <Card>
                 <CardContent>
                     <TextField fullWidth onChange={(e) => {
-                        props.handleChangeDouble(e)
-                    }} label="Remplissez moi !" value={props.double}></TextField>
+                        propriete.handleChangeDouble(e)
+                    }} label="Remplissez moi !" value={propriete.double}></TextField>
                 </CardContent>
             </Card>
         </div>
     )
 }
-
 
 function InputStaticDouble(props) {
         return (
@@ -76,8 +82,61 @@ function InputStaticDouble(props) {
         )
 }
 
+function Test2(props) {
+    return (
+        <div className="grosseTuiles contentManage">
+            <h2>Contenu Grosse tuiles</h2>
+            <Card>
+                <CardContent>
+                    <TextField fullWidth onChange={(e) => {
+                        props.handleChangeDouble(e)
+                    }} label="Remplissez moi !" value={props.double}></TextField>
+                </CardContent>
+            </Card>
+        </div>
+    )
+}
+
+
+function HoxTest (props){
+    return(
+        <p>Test</p>
+    )
+}
+
+
+
+function Test (props){
+    console.log(props.testCompo)
+    if (props.nmb){
+        let arrayTemp = [];
+        for (let i = 0; i < props.nmb ; i++){
+            arrayTemp.push(
+                <props.testCompo key={i} props={props}/>
+            )
+        }
+        return(
+            <div>
+                {arrayTemp}
+            </div>
+            )
+    }
+    else{
+        return(
+            <div>
+                <Test2 />
+                <HoxTest />
+            </div>
+        )
+    }
+}
+
+
+
+
 export default {
     StaticDouble: InputStaticDouble,
     InputDouble: InputDouble,
-    InputMultipleTest: InputMultipleTest
+    InputMultipleTest: InputMultipleTest,
+    TestComponent : Test
 }

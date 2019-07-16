@@ -86,6 +86,7 @@ class App extends React.Component {
                 {<Component.InputMultipleTest removeField={this.removeFieldSingle} handleChange={this.handleChangeSingle} addFields={this.addFieldsSingle} single={this.state.single}/>}
                 {<Component.InputDouble handleChangeDouble={this.handleChangeDouble} double={this.state.double} />}
                 {<Component.StaticDouble static_double={this.state.static_double} handleChangeImg={this.handleChangeImgStaticDouble} handleChangeLink={this.handleChangeLinkStaticDouble} />}
+                {<Component.TestComponent nmb={5} testCompo={Component.InputDouble} handleChangeDouble={this.handleChangeDouble} double={this.state.double} />}
                 <Button className="submitJson" color="primary" size="small" variant="outlined" onClick={(e)=>{
                     this.handleSubmit(e)
                 }} > Valider </Button>
